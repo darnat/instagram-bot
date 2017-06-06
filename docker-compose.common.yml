@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+
+  instagram:
+    build: ./algorythm
+
+  db:
+    image: postgres:9.6-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+
+volumes:
+  db-data:
+    driver: local

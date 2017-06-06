@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  instagram:
+    extends:
+      file: docker-compose.common.yml
+      service: instagram
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - ./algorythm:/app
+    depends_on:
+      - db
+
+  db:
+    extends:
+      file: docker-compose.common.yml
+      service: db
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_DB=instana
+      - POSTGRES_USER=instana
+      - POSTGRES_PASSWORD=instana
+
+volumes:
+  db-data:
+    driver: local

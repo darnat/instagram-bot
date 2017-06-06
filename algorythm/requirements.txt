@@ -1,0 +1,4 @@
+psycopg2==2.7.1
+instana==0.1.8.26
+Flask==0.12
+Flask-SQLAlchemy==2.2
